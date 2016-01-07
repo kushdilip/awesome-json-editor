@@ -1,0 +1,31 @@
+<span>URL</span>
+{{input value=url placeholder="Enter the url"}}
+<button {{action 'getDocs' url}}>Fetch</button>
+
+<br>
+<span>Schema</span>
+{{#power-select 
+  options=content
+  searchField="id"
+  selected=selectedSchema 
+  onchange=(action (mut selectedSchema))
+  as |schema|
+}}
+  {{schema.id}}
+{{/power-select}}
+
+<br>
+
+<span>Select JSON Document</span>
+{{#power-select 
+  options=docs
+  searchField="id"
+  selected=selectDocument 
+  onchange=(action (mut selectDocument))
+  as |doc|
+}}
+  {{doc.id}} - {{doc.value.rev}}
+{{/power-select}}
+
+<br>
+<button {{action 'loadDocuments' url}}>Load</button>

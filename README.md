@@ -51,3 +51,7 @@ Specify what it takes to deploy your app.
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
 
+
+## Credits
+https://github.com/chancancode/hn-reader for solving CORS problem
+https://github.com/jdorn/json-editor for really cool schema based json editor
