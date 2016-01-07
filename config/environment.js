@@ -4,7 +4,6 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'awesome-json-editor',
     environment: environment,
-    baseURL: '/awesome-json-editor',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
@@ -41,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.rootUrl = '/awesome-json-editor';
   }
 
   return ENV;
