@@ -2,6 +2,7 @@ import Ember from 'ember';
 import config from 'awesome-json-editor/config/environment';
 
 export default Ember.Controller.extend({
+  url: '',
   
   docs: Ember.computed('selectedSchema', {
     get(){
