@@ -15,7 +15,6 @@ install:
 - bower install
 - npm install -g gulp-cli
 script:
-- npm run gh-pages
 - npm test
 
 env:
