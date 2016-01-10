@@ -8,9 +8,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
-<meta name="awesome-json-editor/config/environment" content="%7B%22modulePrefix%22%3A%22awesome-json-editor%22%2C%22environment%22%3A%22production%22%2C%22locationType%22%3A%22hash%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22CORS_PROXY%22%3A%22https%3A//cors-anywhere.herokuapp.com%22%2C%22name%22%3A%22awesome-json-editor%22%2C%22version%22%3A%220.0.0+%22%7D%2C%22rootUrl%22%3A%22/awesome-json-editor%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<meta name="awesome-json-editor/config/environment" content="%7B%22modulePrefix%22%3A%22awesome-json-editor%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22hash%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22CORS_PROXY%22%3A%22https%3A//cors-anywhere.herokuapp.com%22%2C%22name%22%3A%22awesome-json-editor%22%2C%22version%22%3A%220.0.0+964cadba%22%7D%2C%22rootUrl%22%3A%22/awesome-json-editor%22%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+<script>
+/* jshint browser: true */
+(function (window) {
+    if (window && window.process && window.process.type) {
+        window.ELECTRON = true;
+    }
 
-    <link rel="stylesheet" href="assets/vendor-e8931c30bf1f5d10762940ba5a8cc72c.css" integrity="sha256-ok2YUn1hJ6VKujpwGudxTibjB6y7Dk5GQZkqPXzDrH8= sha512-qgQ1jinWNQRg23jptAFLUSdZdOhHdLqlJE2uagd5xVM+aUwf4PpJethkgZfkDJFoyo91epUGG8HVE8JFRrWjCw==" >
+    window.requireNode = window.require;
+    window.moduleNode = window.module;
+    window.processNode = window.process;
+
+    delete window.process;
+    delete window.require;
+    delete window.module;
+})(this);
+
+</script>
+
+    <link rel="stylesheet" href="assets/vendor-0f9fb9af6ea43685d1cef7de837f045d.css" integrity="sha256-de/WKSOXQ2tT/WdF/83zlrUUlvWwZMnORIDFSogeC4k= sha512-D9pUMzZIRlGGFHQAQcZtNHXl41nnjv7rZZr4dWCPVLWoPTQWErQHdE8pPB7ycxO1XM81/vfX6s37gV33CzeHnw==" >
     <link rel="stylesheet" href="assets/awesome-json-editor-d41d8cd98f00b204e9800998ecf8427e.css" integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU= sha512-z4PhNX7vuL3xVChQ1m2AB9Yg5AULVxXcg/SpIdNs6c5H0NE8XYXysP+DGNKHfuwvY7kxvUdBeoGlODJ6+SfaPg==" >
 
     
@@ -18,9 +35,38 @@
   <body>
     
 
-    <script src="assets/vendor-40b5770b0049ebe0a5e223b029e5d8bb.js"></script>
-    <script src="assets/awesome-json-editor-cc8b6816ffcc7d2f56c3aea49e036e6b.js" integrity="sha256-ZA+C4sM7u06zp87/SPQSGuB2iFKh2t+Yzt3zZPAhOWg= sha512-9eUW+H4vo/cQzi3+1+NbMgB/URUifvWO3Gh/Vdv2SsE2CSvjDfPLxGJ1B6S3U5kQZeGRI3ZttCFeVWRvMWx4fw==" ></script>
+    <script src="assets/vendor-2727dd0043c9749ef640206bd4baf6e7.js"></script>
+    <script src="assets/awesome-json-editor-b58df14060b6e4cd04952491058f84d6.js" integrity="sha256-1yAMQVT0pf5KsOJLdov0lUKyxLGbnWXRLSNmEFPoA3s= sha512-muM9TIPldhGNz9g9h9+CZd7/gM7SoSPglyyHCGQmaNkB+81zrrqWWphxMtlVzT6PcDSVfaf/YS8RTYbya+uAzw==" ></script>
 
-    <div id="ember-basic-dropdown-wormhole"></div>
+    <script>
+/* jshint browser: true */
+(function (window) {
+    if (!window.ELECTRON) {
+        return;
+    }
+
+    // Restore Electron variables.
+    window.process = window.processNode;
+
+    // Redefine a global `require` function that can satisfy both
+    // Node and AMD module systems.
+    var requireAMD = window.require;
+    var requireNode = window.requireNode;
+
+    if (requireAMD) {
+        window.require = function () {
+            try {
+                return requireAMD.apply(null, arguments);
+            } catch (e) {
+                return requireNode.apply(null, arguments);
+            }
+        };
+    } else {
+        window.require = requireNode;
+    }
+})(this);
+
+</script>
+<div id="ember-basic-dropdown-wormhole"></div>
   </body>
 </html>
